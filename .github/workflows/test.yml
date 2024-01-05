@@ -20,6 +20,6 @@ jobs:
 
       - name: Run setup 
         run: |    
-          df
+          df -m
           pwd
           ls -l
