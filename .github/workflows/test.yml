@@ -1,21 +1,26 @@
-name: CI
+name: dev-build
+
 on:
   push:
-    branches: [ main ]
+    branches: ["main"]
+
+  workflow_dispatch:
+
 jobs:
-  container-test-job:
+  build:
     runs-on: ubuntu-latest
-    container:
-      image: ekho/utorrent:latest
-      env:
-        NODE_ENV: development
-      ports:
-        - 80
-      volumes:
-        - my_docker_volume:/volume_mount
-      options: --cpus 1
     steps:
-      - name: Just playing
-        run: |
-          ls
-          pwd
+      - uses: actions/checkout@v3
+
+      - name: Change directory
+        run: cd $GITHUB_WORKSPACE
+
+      - name: Java version
+        run: java --version
+
+      - name: Download utorrent
+        run: wget https://download.red-gate.com/checkforupdates/FlywayDesktopLinuxX64.tar.gz
+
+      - name: Run flyway
+        run: |    
+          ls -l
