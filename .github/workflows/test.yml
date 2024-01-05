@@ -20,11 +20,4 @@ jobs:
 
       - name: Run setup 
         run: |    
-          sudo apt install libssl-dev
-          sudo apt update
-          wget http://download.ap.bittorrent.com/track/beta/endpoint/utserver/os/linux-x64-ubuntu-13-04 -O utserver.tar.gz
-          sudo tar -zxvf utserver.tar.gz -C /opt/
-          sudo ln -s /opt/utorrent-server-*/utserver /usr/bin/utserver
-          utserver -settingspath /opt/utorrent-server-*/ &
-          sudo ufw allow 8080/tcp
-          sudo ufw allow 6881/tcp
+          df
