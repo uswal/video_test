@@ -1,6 +1,13 @@
 
 name: 'Hello World'
 description: 'Greet someone and record the time'
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+
 runs:
   using: 'docker'
   image: 'ekho/utorrent:latest'
